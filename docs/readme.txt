@@ -26,7 +26,17 @@ python3 -m IPython notebook
 
 4.在jupyther中使用:
 %load_ext zipline
-%%zipline --start 2017-1-1 --end 2017-4-20 --capital-base 100000
+%%zipline --start 2017-1-1 --end 2017-4-20 --capital-base 100000 --no-benchmark
+from zipline.api import order, record, symbol
+
+def initialize(context):
+    pass
+
+def handle_data(context, data):
+    order(symbol('AAPL'), 10)
+    record(AAPL=data.current(symbol('AAPL'), 'price'))
+
+
 文档：https://github.com/jiangyongyuan/zipline-1
 
 
