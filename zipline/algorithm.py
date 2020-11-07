@@ -450,6 +450,7 @@ class TradingAlgorithm(object):
         self._in_before_trading_start = False
 
     def handle_data(self, data):
+        print('hello handle_data test ');
         if self._handle_data:
             self._handle_data(self, data)
 
